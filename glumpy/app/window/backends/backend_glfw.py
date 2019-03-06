@@ -293,12 +293,12 @@ class Window(window.Window):
                 self._button = window.mouse.NONE
                 self._mouse_x = x
                 self._mouse_y = y
-                self.dispatch_event('on_mouse_release', x, y, button)
+                self.dispatch_event('on_mouse_release', x, y, button, mods)
             elif action == glfw.GLFW_PRESS:
                 self._button = button
                 self._mouse_x = x
                 self._mouse_y = y
-                self.dispatch_event('on_mouse_press', x, y, button)
+                self.dispatch_event('on_mouse_press', x, y, button, mods)
         glfw.glfwSetMouseButtonCallback(self._native_window, on_mouse_button)
 
 
