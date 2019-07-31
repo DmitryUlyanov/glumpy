@@ -11,13 +11,14 @@ from glumpy.transforms import Position, Viewport
 
 class AggGlyphCollection(Collection):
 
-    def __init__(self, transform=None, viewport=None, **kwargs):
+    def __init__(self, transform=None, viewport=None, color=(1, 1 ,1, 1), **kwargs):
         dtype = [('position',  (np.float32, 2), '!local', (0, 0)),
                  ('texcoord',  (np.float32, 2), '!local', (0, 0)),
                  ('offset',    (np.float32, 1), '!local', 0),
                  ('origin',    (np.float32, 3), 'shared', (0, 0, 0)),
-                 ('color',     (np.float32, 4), 'shared', (0, 0, 0, 1))]
+                 ('color',     (np.float32, 4), 'shared', color)]
 
+        print('===========================')
         if "vertex" in kwargs.keys():
             vertex = kwargs["vertex"]
             del kwargs["vertex"]
